@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node dist/server.js",
-    "build": "mkdir dist && copy server.js dist\\",
+    "build": "mkdir -p dist && cp server.js dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -23,7 +23,5 @@
     "webpack": "^5.97.1",
     "webpack-cli": "^6.0.1"
   },
-  "devDependencies": {
-    "save-dev": "^0.0.1-security"
-  }
+  "devDependencies": {}
 }
