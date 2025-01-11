@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node dist/server.js",
-    "build": "mkdir -p dist && cp server.js dist/",
+    "build": "node -e \"require('fs').mkdirSync('dist', { recursive: true }); require('fs').copyFileSync('server.js', 'dist/server.js');\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
