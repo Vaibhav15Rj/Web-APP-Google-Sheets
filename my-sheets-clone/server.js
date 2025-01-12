@@ -14,7 +14,7 @@ app.use(express.json());
 // Enable CORS
 app.use(
   cors({
-    origin: 'http://localhost:3000', // Allow requests from React frontend
+    origin: 'https://web-app-google-sheets-od33z7aps-vaibhavs-projects-409d371a.vercel.app', // Allow requests from React frontend
   })
 );
 
