@@ -12,7 +12,7 @@ const Spreadsheet = () => {
   // Fetch data from the backend
   const fetchCells = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/cells");
+      const response = await axios.get("https://web-app-google-sheets.onrender.com/cells");
       setCells(response.data); // Set the data from the backend
     } catch (error) {
       console.error("Error fetching cells:", error.message);
@@ -28,7 +28,7 @@ const Spreadsheet = () => {
       column: 1,
     };
     try {
-      const response = await axios.post("http://localhost:5000/cells", newRow);
+      const response = await axios.post("https://web-app-google-sheets.onrender.com/cells", newRow);
       setCells([...cells, response.data]);
     } catch (error) {
       console.error("Error adding row:", error.response?.data?.message || error.message);
@@ -38,7 +38,7 @@ const Spreadsheet = () => {
   // Update a cell
   const updateCell = async (id, updatedValue) => {
     try {
-      await axios.put(`http://localhost:5000/cells/${id}`, { content: updatedValue });
+      await axios.put(`https://web-app-google-sheets.onrender.com/cells/${id}`, { content: updatedValue });
       fetchCells();
     } catch (error) {
       console.error("Error updating cell:", error.response?.data?.message || error.message);
@@ -54,7 +54,7 @@ const Spreadsheet = () => {
         row: cell.row,
         column: cell.column,
       }));
-      await axios.post("http://localhost:5000/save-spreadsheet", { cellsData });
+      await axios.post("https://web-app-google-sheets.onrender.com/save-spreadsheet", { cellsData });
       alert("Spreadsheet saved successfully!");
     } catch (error) {
       console.error("Error saving spreadsheet:", error.message);
@@ -64,7 +64,7 @@ const Spreadsheet = () => {
   // Load Spreadsheet State
   const loadSpreadsheet = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/load-spreadsheet");
+      const response = await axios.get("https://web-app-google-sheets.onrender.com/load-spreadsheet");
       setCells(response.data);
     } catch (error) {
       console.error("Error loading spreadsheet:", error.message);
